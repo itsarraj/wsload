@@ -1,0 +1,32 @@
+[package]
+name = "wsload"
+version = "0.1.0"
+edition = "2021"
+description = "High-concurrency WebSocket load tester and broadcast fan-out latency benchmark"
+license = "MIT"
+authors = ["Animesh Raj <animesh080808@gmail.com>"]
+repository = "https://github.com/itsarraj/wsload"
+readme = "README.md"
+keywords = ["websocket", "load", "benchmark", "stress", "fanout"]
+categories = ["command-line-utilities", "network-programming", "development-tools"]
+
+[lib]
+name = "wsload"
+path = "src/lib.rs"
+
+[[bin]]
+name = "wsload"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.24"
+futures-util = "0.3"
+colored = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
